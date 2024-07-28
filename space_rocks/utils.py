@@ -8,6 +8,10 @@ from pygame.image import load
 from pygame.math import Vector2
 from pygame.mixer import Sound
 
+import os
+
+cwd = os.getcwd()
+
 def wrap_position(position, surface):
     x, y = position
     w, h = surface.get_size()
@@ -36,7 +40,8 @@ def load_sprite(name, with_alpha=True):
     path = ""
     input = "class"
     if input == "class":
-        path = f"/home/balance/Documents/Scripts/Tests/Python Tests/astroids/game_project/assets/sprites/{name}.png"
+        #path = f"/home/balance/Documents/Scripts/Tests/Python Tests/astroids/game_project/assets/sprites/{name}.png"
+        path = os.path.join(cwd, "assets", "sprites", name + ".png")
     elif input == "home":
         path = f"/home/balance/Documents/Scripts/PyGame/astroids/game_project/assets/sprites/{name}.png"
     loaded_sprite = load(path)
@@ -50,10 +55,12 @@ def load_sound(name):
     path = ""
     input = "class"
     if input == "class":
-        path = f"/home/balance/Documents/Scripts/Tests/Python Tests/astroids/game_project/assets/sounds/{name}.wav"
+        #path = f"/home/balance/Documents/Scripts/Tests/Python Tests/astroids/game_project/assets/sounds/{name}.wav"
+        path = os.path.join(cwd, "assets", "sounds", name + ".wav")
     elif input == "home":
         path = f"/home/balance/Documents/Scripts/PyGame/astroids/game_project/assets/sounds/{name}.wav"
     
     return Sound(path)
 
-
+def show_path():
+    return os.getcwd()
