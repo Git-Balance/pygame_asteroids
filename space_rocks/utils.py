@@ -37,13 +37,7 @@ def print_text(surface, text, font, color=Color("tomato")):
     surface.blit(text_surface, rect)
 
 def load_sprite(name, with_alpha=True):
-    path = ""
-    input = "class"
-    if input == "class":
-        #path = f"/home/balance/Documents/Scripts/Tests/Python Tests/astroids/game_project/assets/sprites/{name}.png"
-        path = os.path.join(cwd, "assets", "sprites", name + ".png")
-    elif input == "home":
-        path = f"/home/balance/Documents/Scripts/PyGame/astroids/game_project/assets/sprites/{name}.png"
+    path = os.path.join(cwd, "assets", "sprites", name + ".png")
     loaded_sprite = load(path)
 
     if with_alpha:
@@ -52,13 +46,7 @@ def load_sprite(name, with_alpha=True):
         return loaded_sprite.convert()
 
 def load_sound(name):
-    path = ""
-    input = "class"
-    if input == "class":
-        #path = f"/home/balance/Documents/Scripts/Tests/Python Tests/astroids/game_project/assets/sounds/{name}.wav"
-        path = os.path.join(cwd, "assets", "sounds", name + ".wav")
-    elif input == "home":
-        path = f"/home/balance/Documents/Scripts/PyGame/astroids/game_project/assets/sounds/{name}.wav"
+    path = os.path.join(cwd, "assets", "sounds", name + ".wav")
     
     return Sound(path)
 
